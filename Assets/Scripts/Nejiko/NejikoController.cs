@@ -15,6 +15,12 @@ public class NejikoController : MonoBehaviour
     public float speed = 0f;
     Animator animator;
 
+    //ジャンプの高さを決める変数
+    public float jumppower = 0f;
+
+    //重力の強さを決める変数
+    public float gravitypower = 0;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -24,8 +30,18 @@ public class NejikoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(controller.isGrounded)
+        {
+            //ねじこがジャンプする処理
+            if(Input.GetKey(KeyCode.Space))
+            {
+                moveDirection.y = jumppower;
+            }
+        }
+
         if(Input.GetAxis("Vertical") > 0.0f)
         {
+            //ねじこが前進する処理
             moveDirection.z = Input.GetAxis("Vertical") * speed;
         }
         else
@@ -34,16 +50,16 @@ public class NejikoController : MonoBehaviour
         }
         //Horizontal（左右入力）があれば、ねじこを回転させる
         transform.Rotate(0, Input.GetAxis("Horizontal") * 3f, 0);
-        //Jumpキーの入力があればｙ軸に力をかける
-        if(Input.GetButton("Jump"))
-        {
-            moveDirection.y = 1f;
-            animator.SetTrigger("Jump");
-        }
+
+        //ねじこが重力で落下する処理
+        moveDirection.y = moveDirection.y - gravitypower * Time.deltaTime;
+        
         //移動量をTransformに変換する
         Vector3 globalDirection = transform.TransformDirection(moveDirection);
+
         //Controllerに移動量を渡す
-        controller.Move(globalDirection);
+        controller.Move(globalDirection * Time.deltaTime);
+
         //ねじこのアニメーションを最新する
         animator.SetBool("run", moveDirection.z > 0f);
     }
