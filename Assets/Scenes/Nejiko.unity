@@ -318,7 +318,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1668173813}
   stageChip:
-  - {fileID: 1870312697}
+  - {fileID: 114390, guid: 16de06a814a1d403fbe161e9851bc37b, type: 3}
+  - {fileID: 114390, guid: 0e2f118eae1870b4a99ecca24dbaf9fe, type: 3}
+  - {fileID: 114390, guid: 0e2f118eae1870b4a99ecca24dbaf9fe, type: 3}
+  - {fileID: 114390, guid: 137dd90f4b16262408af8742055734a5, type: 3}
+  - {fileID: 114390, guid: a6ce982f787d6384f93590a06d45ff50, type: 3}
+  - {fileID: 114390, guid: bc6aed7099d55694293525bca0680627, type: 3}
   generateStageList: []
   preInstance: 5
   currentChipIndex: 0
@@ -485,12 +490,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16de06a814a1d403fbe161e9851bc37b, type: 3}
---- !u!1 &1870312697 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 114390, guid: 16de06a814a1d403fbe161e9851bc37b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1870312696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038546176
 GameObject:
   m_ObjectHideFlags: 0
